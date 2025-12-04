@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FinanceOne - Financial Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #111629;
+        }
+        header {
+            background-color: #004879;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .promo-section {
+            background-color: #004879;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .promo-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .promo-description {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .promo-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .promo-btn {
+            background-color: #D22E1E;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .promo-btn:hover {
+            background-color: #a61f15;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            background-color: white;
+        }
+        .service-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 250px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+        }
+        .service-card h3 {
+            color: #004879;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 0.95em;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FinanceOne</h1>
+        <p>Your Trusted Financial Partner</p>
+    </header>
+
+    <section class="promo-section">
+        <h2 class="promo-title">Introducing Our New Platinum Tier Credit Card</h2>
+        <p class="promo-description">Enjoy premium benefits, exclusive rewards, and unmatched financial flexibility with our latest Platinum Tier Credit Card.</p>
+        <div class="promo-buttons">
+            <button class="promo-btn">Check my eligibility</button>
+            <button class="promo-btn">See our cards</button>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="service-card">
+            <h3>Mortgage</h3>
+            <p>Find the best mortgage options tailored to your needs and budget.</p>
+        </div>
+        <div class="service-card">
+            <h3>Insurance</h3>
+            <p>Protect what matters most with our comprehensive insurance plans.</p>
+        </div>
+        <div class="service-card">
+            <h3>Wealth Management</h3>
+            <p>Grow your wealth with expert advice and personalized investment strategies.</p>
+        </div>
+        <div class="service-card">
+            <h3>Financial Planning</h3>
+            <p>Plan for your future with tailored financial strategies and expert guidance.</p>
+        </div>
+    </section>
+</body>
+</html>

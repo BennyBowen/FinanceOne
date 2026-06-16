@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for a Loan – FinanceOne</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#eff6ff',
+              100: '#dbeafe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              900: '#1e3a8a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+<!-- ── HEADER ───────────────────────────────────────────────── -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+  <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600">
+          <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-gray-900">Finance<span class="text-brand-600">One</span></span>
+      </a>
+      <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-brand-600 transition-colors flex items-center gap-1.5">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+        </svg>
+        Back to home
+      </a>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ── HERO STRIP ────────────────────────────────────────────── -->
+<div class="bg-gradient-to-r from-brand-900 to-brand-600 text-white py-10">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-4">
+      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20">
+        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="text-2xl font-extrabold">Loan Application</h1>
+        <p class="text-blue-200 text-sm mt-0.5">Continue your conversation with Aria — she'll fill this in as you chat.</p>
+      </div>
+      <!-- Session continuity badge -->
+      <div class="ml-auto hidden sm:flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/20 px-4 py-2">
+        <span class="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-sm font-medium text-white">Session active</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── MAIN CONTENT ───────────────────────────────────────────── -->
+<main id="apply" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+  <div class="lg:grid lg:grid-cols-5 lg:gap-12 lg:items-start">
+
+    <!-- Left: progress tracker -->
+    <div class="lg:col-span-2 mb-10 lg:mb-0">
+      <div class="rounded-2xl bg-white ring-1 ring-gray-200 shadow-sm p-8">
+        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-6">What Aria will collect</p>
+        <ul class="space-y-4" id="progress-checklist">
+          <li class="flex items-center gap-3" data-field="fullName">
+            <span class="check-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-400 text-xs">1</span>
+            <span class="text-sm font-medium text-gray-700">Your full name</span>
+          </li>
+          <li class="flex items-center gap-3" data-field="email">
+            <span class="check-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-400 text-xs">2</span>
+            <span class="text-sm font-medium text-gray-700">Email address</span>
+          </li>
+          <li class="flex items-center gap-3" data-field="loanPurpose">
+            <span class="check-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-400 text-xs">3</span>
+            <span class="text-sm font-medium text-gray-700">Loan purpose</span>
+          </li>
+          <li class="flex items-center gap-3" data-field="loanAmount">
+            <span class="check-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-400 text-xs">4</span>
+            <span class="text-sm font-medium text-gray-700">Amount required</span>
+          </li>
+          <li class="flex items-center gap-3" data-field="annualIncome">
+            <span class="check-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-400 text-xs">5</span>
+            <span class="text-sm font-medium text-gray-700">Annual income</span>
+          </li>
+          <li class="flex items-center gap-3" data-field="employmentStatus">
+            <span class="check-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-400 text-xs">6</span>
+            <span class="text-sm font-medium text-gray-700">Employment status</span>
+          </li>
+        </ul>
+
+        <!-- Progress bar -->
+        <div class="mt-8">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-medium text-gray-500">Application progress</span>
+            <span id="progress-pct" class="text-xs font-bold text-brand-600">0%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div id="progress-bar" class="bg-brand-600 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button id="submit-btn"
+          disabled
+          class="mt-8 w-full rounded-full bg-gray-300 px-6 py-3 text-sm font-semibold text-gray-500 cursor-not-allowed transition-all duration-300"
+          onclick="handleApplicationSubmit()">
+          Submit Application
+        </button>
+        <p id="submit-note" class="text-xs text-gray-400 text-center mt-3">Complete all fields via the chat to unlock</p>
+      </div>
+
+      <!-- Security note -->
+      <div class="mt-4 rounded-xl bg-brand-50 ring-1 ring-brand-100 p-5 flex items-start gap-3">
+        <svg class="h-5 w-5 text-brand-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+        </svg>
+        <div>
+          <p class="text-sm font-semibold text-brand-700">Your data is secure</p>
+          <p class="text-xs text-brand-600 mt-0.5">256-bit encryption · FCA regulated · FSCS protected</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: the auto-filled form -->
+    <div class="lg:col-span-3">
+      <form id="loan-application-form" class="rounded-2xl bg-white ring-1 ring-gray-200 shadow-sm p-8 space-y-6" onsubmit="return false;">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+          <!-- Full Name -->
+          <div class="form-field-wrap" id="wrap-fullName">
+            <label for="f-fullName" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Full Name</label>
+            <div class="relative">
+              <input id="f-fullName" type="text" readonly placeholder="Waiting for Aria…"
+                class="form-field w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all duration-300"/>
+              <span class="field-check hidden absolute right-3 top-3 text-green-500">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-field-wrap" id="wrap-email">
+            <label for="f-email" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Email Address</label>
+            <div class="relative">
+              <input id="f-email" type="email" readonly placeholder="Waiting for Aria…"
+                class="form-field w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all duration-300"/>
+              <span class="field-check hidden absolute right-3 top-3 text-green-500">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Loan Purpose -->
+          <div class="form-field-wrap" id="wrap-loanPurpose">
+            <label for="f-loanPurpose" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Loan Purpose</label>
+            <div class="relative">
+              <input id="f-loanPurpose" type="text" readonly placeholder="Waiting for Aria…"
+                class="form-field w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all duration-300"/>
+              <span class="field-check hidden absolute right-3 top-3 text-green-500">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Loan Amount -->
+          <div class="form-field-wrap" id="wrap-loanAmount">
+            <label for="f-loanAmount" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Loan Amount (£)</label>
+            <div class="relative">
+              <input id="f-loanAmount" type="text" readonly placeholder="Waiting for Aria…"
+                class="form-field w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all duration-300"/>
+              <span class="field-check hidden absolute right-3 top-3 text-green-500">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Annual Income -->
+          <div class="form-field-wrap" id="wrap-annualIncome">
+            <label for="f-annualIncome" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Annual Income (£)</label>
+            <div class="relative">
+              <input id="f-annualIncome" type="text" readonly placeholder="Waiting for Aria…"
+                class="form-field w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all duration-300"/>
+              <span class="field-check hidden absolute right-3 top-3 text-green-500">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Employment Status -->
+          <div class="form-field-wrap" id="wrap-employmentStatus">
+            <label for="f-employmentStatus" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Employment Status</label>
+            <div class="relative">
+              <input id="f-employmentStatus" type="text" readonly placeholder="Waiting for Aria…"
+                class="form-field w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none transition-all duration-300"/>
+              <span class="field-check hidden absolute right-3 top-3 text-green-500">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live status banner -->
+        <div id="form-status-banner" class="hidden rounded-xl bg-brand-50 ring-1 ring-brand-200 px-5 py-4 flex items-center gap-3">
+          <span class="flex h-2 w-2 rounded-full bg-green-400 animate-pulse shrink-0"></span>
+          <p id="form-status-text" class="text-sm text-brand-700 font-medium"></p>
+        </div>
+
+        <p class="text-xs text-gray-400 text-center pt-2">
+          🔒 Populated automatically and securely by Aria. Your data is encrypted in transit.
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</main>
+
+
+<!-- ── FOOTER ────────────────────────────────────────────────── -->
+<footer class="mt-16 border-t border-gray-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+    <p class="text-xs text-gray-400 leading-relaxed">
+      <strong class="text-gray-500">Financial Disclaimer:</strong>
+      FinanceOne is a fictitious company created for demonstration purposes only.
+      This does not constitute financial advice. Capital at risk.
+    </p>
+    <p class="text-xs text-gray-500 mt-2">
+      © 2026 FinanceOne Ltd · Authorised and regulated by the FCA (Ref: 000000)
+    </p>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     FORM-FILL LOGIC
+     (identical to index.html so both pages work standalone)
+     ============================================================ -->
+<script>
+  function fillFormField(fieldId, value) {
+    const input = document.getElementById('f-' + fieldId);
+    const wrap  = document.getElementById('wrap-' + fieldId);
+    if (!input || !value) return;
+    input.value = value;
+    input.classList.remove('border-gray-200', 'bg-gray-50');
+    input.classList.add('border-green-400', 'bg-green-50');
+    const check = wrap.querySelector('.field-check');
+    if (check) check.classList.remove('hidden');
+    const listItem = document.querySelector('#progress-checklist [data-field="' + fieldId + '"]');
+    if (listItem) {
+      const icon = listItem.querySelector('.check-icon');
+      icon.textContent = '✓';
+      icon.classList.remove('bg-gray-200', 'text-gray-400');
+      icon.classList.add('bg-green-500', 'text-white');
+    }
+    updateProgress();
+    const label = wrap.querySelector('label');
+    showStatusBanner('✅ ' + (label ? label.textContent : fieldId) + ' captured');
+  }
+
+  const ALL_FIELDS = ['fullName','email','loanPurpose','loanAmount','annualIncome','employmentStatus'];
+
+  function updateProgress() {
+    const filled = ALL_FIELDS.filter(f => {
+      const el = document.getElementById('f-' + f);
+      return el && el.value.trim() !== '';
+    }).length;
+    const pct = Math.round((filled / ALL_FIELDS.length) * 100);
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-pct').textContent  = pct + '%';
+    if (filled === ALL_FIELDS.length) {
+      const btn  = document.getElementById('submit-btn');
+      const note = document.getElementById('submit-note');
+      btn.disabled = false;
+      btn.classList.remove('bg-gray-300','text-gray-500','cursor-not-allowed');
+      btn.classList.add('bg-brand-600','text-white','hover:bg-brand-700','cursor-pointer');
+      note.textContent = '🎉 All fields complete — ready to submit!';
+    }
+  }
+
+  function showStatusBanner(msg) {
+    const banner = document.getElementById('form-status-banner');
+    document.getElementById('form-status-text').textContent = msg;
+    banner.classList.remove('hidden');
+    clearTimeout(window._bannerTimer);
+    window._bannerTimer = setTimeout(() => banner.classList.add('hidden'), 3500);
+  }
+
+  function handleApplicationSubmit() {
+    const data = {};
+    ALL_FIELDS.forEach(f => { data[f] = document.getElementById('f-' + f).value; });
+    alert('Application submitted!\n\n' + JSON.stringify(data, null, 2));
+    // In production: POST to your backend / Cognigy API endpoint here.
+  }
+</script>
+
+
+<!-- ============================================================
+     COGNIGY WEBCHAT — apply.html
+     ──────────────────────────────────────────────────────────
+     Session continuity: Cognigy Webchat stores the userId in
+     localStorage. Because both index.html and apply.html share
+     the same domain (e.g. GitHub Pages), localStorage persists
+     across the navigation and the conversation continues
+     seamlessly on this page.
+
+     The analytics listener here handles:
+       1. formUpdate  — fills form fields (same as index.html)
+       2. No screenPop needed here — we're already on the form page
+     ============================================================ -->
+<script src="https://github.com/Cognigy/Webchat/releases/latest/download/webchat.js"></script>
+<script>
+  initWebchat(
+    "https://endpoint-trial.cognigy.ai/8d4dbc2a89cff8091348a81c73794c5caab53035f6c22e6470d8ece11974a61b",
+    {
+      settings: {
+        layout:   { title: "FinanceOne Advisor", logoUrl: "", watermark: "none" },
+        colors:   { primaryColor: "#1d4ed8", secondaryColor: "#1e3a8a", userMessageColor: "#dbeafe" },
+        behavior: { inputPlaceholder: "Continue your application…", enableTypingIndicator: true, renderMarkdown: true },
+        startBehavior: {
+          startBehavior:  "injection",
+          getStartedPayload: "GET_STARTED",
+          getStartedText: "Hello"
+        }
+      }
+    }
+  ).then(function(webchat) {
+
+    window.webchat = webchat;
+
+    webchat.registerAnalyticsService(function(event) {
+
+      // ── PRIMARY: structured data from Cognigy flow ────────────
+      // Your Cognigy Code node sends:
+      //   actions.output("Got it!", { formUpdate: { fullName: "Jane Smith" } });
+      if (event.type === 'webchat/incoming-message') {
+        var data = event.payload && event.payload.data;
+        if (data && data.formUpdate) {
+          Object.keys(data.formUpdate).forEach(function(fieldId) {
+            fillFormField(fieldId, data.formUpdate[fieldId]);
+          });
+        }
+      }
+
+      // ── SECONDARY: parse user's raw messages (demo / fallback) ─
+      if (event.type === 'webchat/outgoing-message') {
+        var text = (event.payload && event.payload.text) || '';
+
+        var emailMatch = text.match(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/);
+        if (emailMatch) fillFormField('email', emailMatch[0]);
+
+        var amountMatch = text.match(/£?([\d,]+)\s*k?\b/i);
+        if (amountMatch) {
+          var raw    = amountMatch[1].replace(/,/g,'');
+          var amount = text.toLowerCase().includes('k') ? parseInt(raw) * 1000 : parseInt(raw);
+          if (amount >= 1000 && amount <= 2000000) {
+            var field = document.getElementById('f-loanAmount').value ? 'annualIncome' : 'loanAmount';
+            fillFormField(field, '£' + amount.toLocaleString());
+          }
+        }
+
+        var emp = text.toLowerCase();
+        if      (emp.includes('self-employed') || emp.includes('self employed')) fillFormField('employmentStatus', 'Self-Employed');
+        else if (emp.includes('employed'))   fillFormField('employmentStatus', 'Employed');
+        else if (emp.includes('retired'))    fillFormField('employmentStatus', 'Retired');
+        else if (emp.includes('unemployed')) fillFormField('employmentStatus', 'Unemployed');
+
+        var purpose = text.toLowerCase();
+        if      (purpose.includes('home') || purpose.includes('mortgage') || purpose.includes('house'))
+          fillFormField('loanPurpose', 'Home Purchase');
+        else if (purpose.includes('car') || purpose.includes('vehicle'))
+          fillFormField('loanPurpose', 'Vehicle');
+        else if (purpose.includes('business'))
+          fillFormField('loanPurpose', 'Business');
+        else if (purpose.includes('debt') || purpose.includes('consolidat'))
+          fillFormField('loanPurpose', 'Debt Consolidation');
+        else if (purpose.includes('renovati') || purpose.includes('improve'))
+          fillFormField('loanPurpose', 'Home Improvement');
+      }
+
+    });
+
+  });
+</script>
+
+</body>
+</html>
